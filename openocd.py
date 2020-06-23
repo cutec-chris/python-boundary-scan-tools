@@ -13,10 +13,8 @@ class OpenOcd:
         self.tclRpcIp       = "127.0.0.1"
         self.tclRpcPort     = 6666
         self.bufferSize     = 40960000
-
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
     def __enter__(self):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((self.tclRpcIp, self.tclRpcPort))
         return self
 
